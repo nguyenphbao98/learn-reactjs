@@ -1,10 +1,13 @@
+import { Route, Switch } from 'react-router';
 import './App.css';
-import CounterFeatures from './features/Counter';
+import ProductFeature from './features/Products';
 
 function App() {
   return (
-    <div className="App">
-      <CounterFeatures />
+    <div>
+      <Switch>
+        <Route path="/products" exact component={ProductFeature} />
+      </Switch>
     </div>
   );
 }
