@@ -9,7 +9,8 @@ function TodoForm({onSubmit = null}) {
 
     // * define schema
     const schema = yup.object().shape({
-        title: yup.string().required('Please enter title'),
+        title: yup.string().required(),
+        description: yup.string().required(),
     });
 
     // * define form with useForm using yupResolver
@@ -21,10 +22,10 @@ function TodoForm({onSubmit = null}) {
     //     resolver: yupResolver(schema)
     // });
 
-    const { handleSubmit, control, formState} = useForm({
+    const { handleSubmit, control, formState, register} = useForm({
         defaultValues: {
             title: '',
-            des: '',
+            description: '',
         },
         resolver: yupResolver(schema)
     });
@@ -54,7 +55,7 @@ function TodoForm({onSubmit = null}) {
             {errors.title && <span>This is required.</span>}
             <br/>
             <Controller
-                name="des"
+                name="description"
                 render={({ field: { onChange, onBlur, value, name }}) => (
                     <TextField 
                         name={name}
@@ -65,7 +66,10 @@ function TodoForm({onSubmit = null}) {
                 )}
                 control={control}
             />
-            {errors.des && <span>This is required.</span>}
+            {errors.description && <span>This is my required.</span>}
+            
+            <br/>
+            <input type="submit" />
         </form>
     );
 }
