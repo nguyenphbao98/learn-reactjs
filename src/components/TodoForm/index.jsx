@@ -3,6 +3,7 @@ import { TextField } from '@material-ui/core';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from "yup";
+import InputComponent from '../InputComponent';
 
 
 function TodoForm({onSubmit = null}) {
@@ -40,7 +41,7 @@ function TodoForm({onSubmit = null}) {
 
     return (
         <form onSubmit={handleSubmit(myHandleSubmit)}>
-            <Controller
+            {/* <Controller
                 name="title"
                 render={({ field: { onChange, onBlur, value, name }}) => (
                     <TextField 
@@ -52,7 +53,23 @@ function TodoForm({onSubmit = null}) {
                 )}
                 control={control}
             />
-            {errors.title && <span>This is required.</span>}
+            {errors.title && <span>This is required.</span>} */}
+
+            <InputComponent title="title" error={errors.title} control={control} />
+
+            {/* <Controller
+                name="title"
+                render={({ field: { onChange, onBlur, value, name }}) => (
+                    <TextField 
+                        name={name}
+                        value={value}
+                        onChange={value => onChange(value)}
+                        onBlur={onBlur}
+                    />
+                )}
+                control={control}
+            />
+            {errors.title && <span>This is required.</span>} */}
             <br/>
             <Controller
                 name="description"
