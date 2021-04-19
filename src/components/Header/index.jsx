@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Header() {
+function Header() {
 
     const [open, setOpen] = useState(false);
 
@@ -77,3 +77,5 @@ export default function Header() {
     </div>
     );
 }
+
+export default Header;
