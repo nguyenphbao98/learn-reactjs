@@ -30,7 +30,7 @@ function ListPage(props) {
         _page: 1,
         _limit: 9,
         _sort: "salePrice:ASC",
-        categoryId: null
+        // categoryId: null
     });
 
     useEffect(() => {
