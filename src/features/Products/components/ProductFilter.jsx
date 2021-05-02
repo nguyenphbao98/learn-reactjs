@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 import FilterByCategory from './Filters/FilterByCategory';
 import FilterByPrice from './Filters/FilterByPrice';
 
@@ -15,17 +15,21 @@ function ProductFilter({filters, onChange}) {
         if(!onChange) return;
 
         const newFilters = {
-            ...filters,
             category: newCateId,
         };
 
         onChange(newFilters);
     }
 
+    const handlePriceChange = (values) => {
+        if(onChange)
+            onChange(values);
+    }
+
     return (
         <Box>
             <FilterByCategory onChange={handleCategoryChange}/>
-            {/* <FilterByPrice /> */}
+            <FilterByPrice onChange={handlePriceChange}/>
         </Box>
     );
 }
